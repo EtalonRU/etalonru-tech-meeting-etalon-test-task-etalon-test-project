@@ -1,12 +1,13 @@
-from distutils.util import strtobool
 import logging
+
+from distutils.util import strtobool
 from os import getenv
 from pathlib import Path
 
 from dotenv import load_dotenv
 
 
-current_dir = Path(__file__).parent
+current_dir = Path(__file__)
 env_loaded = load_dotenv(current_dir.parents[1].joinpath(".env"))
 
 
