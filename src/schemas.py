@@ -46,29 +46,18 @@ class FIOPattern:
     )
 
 
-@dataclass(frozen=True)
-class INNPattern:
-    min_len: int = 10
-    max_len: int = 12
-    regex: str = rf"^[0-9]{{{min_len}, {max_len}}}$"
-    description: str = f"ИНН должен быть от {min_len} до {max_len} цифр."
 
 
 class UserRead(schemas.BaseUser[uuid.UUID]):
-    fio: str
+    fullname: str
     email_notify: bool
 
 
 class UserCreate(schemas.BaseUserCreate):
-    fio: str = Field(
+    fullname: str = Field(
         min_length=FIOPattern.min_len,
         max_length=FIOPattern.max_len,
         pattern=FIOPattern.regex,
-    )
-    inn: str = Field(
-        min_length=INNPattern.min_len,
-        max_length=INNPattern.max_len,
-        pattern=INNPattern.regex,
     )
     password: str = Field(
         min_length=PasswordPattern.min_len,
@@ -78,15 +67,10 @@ class UserCreate(schemas.BaseUserCreate):
 
 
 class UserUpdate(schemas.CreateUpdateDictModel):
-    fio: str = Field(
+    fullname: str = Field(
         min_length=FIOPattern.min_len,
         max_length=FIOPattern.max_len,
         pattern=FIOPattern.regex,
-    )
-    inn: str = Field(
-        min_length=INNPattern.min_len,
-        max_length=INNPattern.max_len,
-        pattern=INNPattern.regex,
     )
     email_notify: Optional[bool] = False
 
