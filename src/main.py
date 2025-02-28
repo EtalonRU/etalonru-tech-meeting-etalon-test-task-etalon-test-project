@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 
 @asynccontextmanager
 async def lifespan(app):
-    current_dir = Path(__file__).parent
+    current_dir = Path(__file__).parent.parent
     env = current_dir.joinpath(".env")
     if not env.exists():
         shutil.copy(env.parents[1].joinpath("env.template"), "../.env")

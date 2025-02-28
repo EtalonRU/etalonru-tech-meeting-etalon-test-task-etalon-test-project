@@ -24,6 +24,10 @@ class ProjectRead(ProjectBase):
 
 class ProjectsRead(BaseModel):
     projects: List[Optional[ProjectRead]]
+    # temp:
+    # max_temp:
+    # min_temp:
+    # pressure:
 
 
 @dataclass(frozen=True)
@@ -55,12 +59,12 @@ class INNPattern:
 
 
 class UserRead(schemas.BaseUser[uuid.UUID]):
-    fio: str
+    fullname: str
     email_notify: bool
 
 
 class UserCreate(schemas.BaseUserCreate):
-    fio: str = Field(
+    fullname: str = Field(
         min_length=FIOPattern.min_len,
         max_length=FIOPattern.max_len,
         pattern=FIOPattern.regex,
@@ -78,7 +82,7 @@ class UserCreate(schemas.BaseUserCreate):
 
 
 class UserUpdate(schemas.CreateUpdateDictModel):
-    fio: str = Field(
+    fullname: str = Field(
         min_length=FIOPattern.min_len,
         max_length=FIOPattern.max_len,
         pattern=FIOPattern.regex,
