@@ -33,7 +33,7 @@ class Base(AsyncAttrs, DeclarativeBase):
 class User(SQLAlchemyBaseUserTableUUID, Base):
     __tablename__ = "users"
 
-    fio: Mapped[str] = mapped_column(String(150))
+    fullname: Mapped[str] = mapped_column(String(150))
     email_notify: Mapped[bool] = mapped_column(Boolean, default=False)
     created_at: Mapped[datetime] = mapped_column(
         DateTime, default=func.current_timestamp()
@@ -43,7 +43,7 @@ class User(SQLAlchemyBaseUserTableUUID, Base):
         default=func.current_timestamp(),
         onupdate=func.current_timestamp(),
     )
-
+    inn: Mapped[str] = mapped_column(String(12), nullable=True)
     projects: Mapped[List["Project"]] = relationship(back_populates="owner")
 
 
