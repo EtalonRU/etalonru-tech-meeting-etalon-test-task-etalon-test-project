@@ -1,3 +1,4 @@
+[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=18455354&assignment_repo_type=AssignmentRepo)
 # Тестовый проект на FastAPI
 
 Это тестовый проект, созданный для проверки знаний и навыков кандидатов на технические собеседования. Проект включает базовые API-эндпоинты, написанные на FastAPI, и предназначен для демонстрации различных аспектов разработки RESTful API.
