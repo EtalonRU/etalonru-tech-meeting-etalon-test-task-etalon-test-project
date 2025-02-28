@@ -39,6 +39,9 @@ class Settings:
         "TENANT_ID", default="32b38508-8b49-4845-90ca-4dbeefce9999"
     )  # environment tenant id(uuid for Chirpstack Tenant)
 
+    # OPEN WEATHER
+    OPEN_WEATHER_API_KEY = getenv("OPEN_WEATHER_API_KEY", default=None)
+
 
 settings = Settings()
 
