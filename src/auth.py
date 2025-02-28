@@ -36,7 +36,7 @@ logger = logging.getLogger(__name__)
 class UserManager(UUIDIDMixin, BaseUserManager[User, uuid.UUID]):
     reset_password_token_secret = SECRET
     verification_token_secret = SECRET
-    # где-то здесь нужно переопределить метод для отправки письма
+    # где-то здесь нужно переопределить метод для отправки письма test
 
 
 async def get_user_manager(user_db: SQLAlchemyUserDatabase = Depends(get_user_db)):
