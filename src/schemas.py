@@ -24,6 +24,10 @@ class ProjectRead(ProjectBase):
 
 class ProjectsRead(BaseModel):
     projects: List[Optional[ProjectRead]]
+    # temp:
+    # max_temp:
+    # min_temp:
+    # pressure:
 
 
 @dataclass(frozen=True)
