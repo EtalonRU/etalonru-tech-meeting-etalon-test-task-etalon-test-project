@@ -6,7 +6,6 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-
 current_dir = Path(__file__)
 env_loaded = load_dotenv(current_dir.parents[1].joinpath(".env"))
 
@@ -19,8 +18,10 @@ class Settings:
     POSTGRES_PORT: str = getenv("POSTGRES_PORT", "5432")
     POSTGRES_DB: str = getenv("POSTGRES_DB", "pgdb")
     DATABASE_URL = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_SERVER}:{POSTGRES_PORT}/{POSTGRES_DB}"
-    IS_VERIFIED: bool = strtobool(getenv("IS_VERIFIED", default="true"))  # type: ignore
-    ACCESS_LIFETIME_SECONDS: int = int(getenv("ACCESS_LIFETIME_SECONDS", default=3600))
+    IS_VERIFIED: bool = strtobool(
+        getenv("IS_VERIFIED", default="true"))  # type: ignore
+    ACCESS_LIFETIME_SECONDS: int = int(
+        getenv("ACCESS_LIFETIME_SECONDS", default=3600))
     ENV_MODE: str = getenv("ENV_MODE", default="prod")
     LOG_LEVEL: str = getenv("LOG_LEVEL", default="WARNING")
     SECRET: str = getenv("SECRET", default="strong_secret")
@@ -39,6 +40,7 @@ class Settings:
     TENANT_ID: str = getenv(
         "TENANT_ID", default="32b38508-8b49-4845-90ca-4dbeefce9999"
     )  # environment tenant id(uuid for Chirpstack Tenant)
+    OPEN_WEATHER_API_KEY: str = getenv("OPEN_WEATHER_API_KEY")
 
 
 settings = Settings()
